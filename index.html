@@ -1,0 +1,52 @@
+<html data-ng-app="cityRoads" data-ng-controller="MainController">
+  <head>
+    <title>Seabourn Code challenge</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
+    <script src='js/app.js'></script>
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body data-ng-view>
+    <h1>Stop Light Example</h1>
+    {{test}}
+    <div stop-light-directive class="stop-light"></div>
+    <div stop-light-switch-directive></div>
+    
+    
+    <h2>Instructions</h2>
+    Create an app with two stoplights using only green and red.
+    <ul>
+      <li>Light #1 will be for North/South directions.</li>
+      <li>Light #2 will be for East/West directions.
+        <ul><li>
+          <em><strong>Bonus points:</strong> Create what looks like an intersection in HTML/CSS and arrange stoplights accordingly.</em>
+        </li></ul>
+      </li>
+      
+      <li>Create a button that will toggle both lights.
+        <ul><li>
+          <em><strong>Bonus points:</strong> Use a timer to automatically switch stoplights at 5 second intervals.</em> 
+        </li></ul>
+      </li>
+      <li>Use valid HTML and CSS.</li>
+    </ul>
+    
+    <h2>Bonus</h2>
+    <ul>
+      <li>add yellow and animate from green to red.</li>
+      <li>use LESS for your CSS</li>
+      <li>use Bootstrap (optional - Use gear icon in CSS panel to quick add Bootstrap)</li>
+    </ul>
+    <script type=text/ng-template id=stopLight.html>
+      <div class="light-face north-south" data-facing="northSouth" data-direction="{{direction}}">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="light-face east-west" data-facing="eastWest" data-direction="{{direction}}">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </script>
+  </body>
+</html>

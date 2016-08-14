@@ -1,0 +1,117 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.stop-light {
+  position: relative;
+  /*width: 300px;*/
+  height: 300px;
+  width: 100px;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+}
+
+.stop-light h1 {
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+}
+
+.light-face {
+  transform-style: preserve-3d;
+  display: inline-block;
+  background-color: rgb(69, 69, 69);
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(37, 37, 37);
+  position: absolute;
+}
+
+.light-face > div {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid rgb(37, 37, 37);
+  border-top: 4px solid rgb(37, 37, 37);
+  border-bottom: 4px solid rgb(37, 37, 37);
+  transition: all 0.2s;
+  margin: 4px;
+}
+
+.light-face > div:first-child {
+  background-color: rgb(69, 37, 34);
+}
+
+.light-face > div:nth-child(2) {
+  background-color:rgb(75, 75, 39); 
+}
+
+.light-face > div:last-child {
+  background-color: rgb(33, 70, 44);
+}
+
+.north-south {
+  transform: translateX(-46px) rotateY(-45deg);
+}
+
+.east-west {
+  transform: translateX(46px) rotateY(45deg);
+}
+
+.north-south[data-direction=eastWest] > div:first-child, 
+.east-west[data-direction=northSouth] > div:first-child {
+  background-color: rgb(254, 15, 0);
+  box-shadow: 0 0 20px rgba(255, 129, 129, 0.6);
+  transition-delay: 1s;
+}
+.north-south[data-direction=eastWest] > div:nth-child(2), 
+.east-west[data-direction=northSouth] > div:nth-child(2) {
+  background-color:rgb(75, 75, 39);
+  animation: change-yellow 1s;
+}
+.east-west[data-direction=eastWest] > div:first-child, 
+.north-south[data-direction=northSouth] > div:first-child {
+  background-color: rgb(69, 37, 34);
+  animation: change-green 1s;
+}
+.east-west[data-direction=eastWest] > div:last-child, 
+.north-south[data-direction=northSouth] > div:last-child {
+  background-color: rgb(5, 244, 72);
+  box-shadow: 0 0 20px rgba(181, 255, 129, 0.6);
+  transition-delay: 1s;
+}
+
+@keyframes change-yellow {
+  0% {
+    background-color: rgb(245, 222, 17);
+    box-shadow: 0 0 20px rgba(245, 255, 129, 0.6);
+  }
+  99% {
+    background-color: rgb(245, 222, 17);
+    box-shadow: 0 0 20px rgba(245, 255, 129, 0.6);
+  }
+  100% {
+    background-color:rgb(75, 75, 39);
+  }
+}
+
+@keyframes change-green {
+  0% {
+    background-color: rgb(254, 15, 0);
+    box-shadow: 0 0 20px rgba(255, 129, 129, 0.6);
+  }
+  99% {
+    background-color: rgb(254, 15, 0);
+    box-shadow: 0 0 20px rgba(255, 129, 129, 0.6);
+  }
+  100% {
+    background-color: rgb(69, 37, 34);
+  }
+}
